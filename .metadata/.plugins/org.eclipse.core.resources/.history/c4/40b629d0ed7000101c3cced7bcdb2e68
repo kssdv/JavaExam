@@ -1,0 +1,19 @@
+package myproject01;
+
+import java.text.NumberFormat;
+
+public class exam03 {
+
+	public static void main(String[] args) {
+		int number = 123456789123456789;
+		// 方法１
+		NumberFormat formatter = NumberFormat.getInstance();
+		String formattedNum = formatter.format(number);
+		System.out.println(formattedNum);
+		
+		// 方法２
+		String formattedNumber = String.format("%,d", number);
+		System.out.println(formattedNumber);
+	}
+
+}

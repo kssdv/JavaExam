@@ -1,0 +1,35 @@
+package aRank;
+
+import java.util.Scanner;
+
+public class exam01 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int[] nk = str2int(sc.nextLine().split(" "));
+		int[] lst = str2int(sc.nextLine().split(" "));
+		int sum =0;
+		
+		for(int i=0; i<lst.length-(nk[1]-1); i++) {
+			if(i == 0) {
+				for(int j=i; j<i+nk[1]; j++) {
+					sum += lst[j];
+				}
+			}else {
+				sum -= lst[i-1];
+				sum += lst[i+(k-1)];
+			}
+			
+			System.out.println(sum);
+		}
+		
+	}
+	static int[] str2int(String[] str) {
+		int[] lst = new int[str.length];
+		for(int i=0; i<str.length; i++) {
+			lst[i] = Integer.parseInt(str[i]);
+		}
+		
+		return lst;
+	}
+}

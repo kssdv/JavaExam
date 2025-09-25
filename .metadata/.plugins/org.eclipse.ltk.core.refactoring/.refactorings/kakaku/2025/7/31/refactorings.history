@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="4 個の要素を &apos;lib&apos; にコピー&#x0D;&#x0A;- 元のプロジェクト: &apos;kakaku&apos;&#x0D;&#x0A;- 宛先要素: &apos;lib&apos;&#x0D;&#x0A;- オリジナル要素:&#x0D;&#x0A;     jakarta.servlet.jsp.jstl-api-2.0.0.jar&#x0D;&#x0A;     postgresql-42.7.7.jar&#x0D;&#x0A;     jakarta.servlet.jsp.jstl-2.0.0.jar&#x0D;&#x0A;     jstl.jar" description="ファイルをコピー" element1="src/main/webapp/WEB-INF/lib/jakarta.servlet.jsp.jstl-api-2.0.0.jar" element2="src/main/webapp/WEB-INF/lib/postgresql-42.7.7.jar" element3="src/main/webapp/WEB-INF/lib/jakarta.servlet.jsp.jstl-2.0.0.jar" element4="src/main/webapp/WEB-INF/lib/jstl.jar" files="4" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1753667432828" target="/kakaku2/src/main/webapp/WEB-INF/lib" units="0" version="1.0"/>
+</session>

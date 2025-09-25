@@ -1,0 +1,21 @@
+INDEX VERSION 1.134
+C:\pleiades\2025-06\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2200385521.index
+\MVCTEST\src\main\java
+C:\pleiades\2025-06\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1292498696.index
+\exBoardModel\src\main\java
+C:\pleiades\2025-06\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1199023139.index
+\MVCTEST2(kakaku)\src\main\java
+C:\pleiades\2025-06\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4062223392.index
+\OriginalSakuhin\src\main\java
+C:\pleiades\2025-06\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\208932068.index
+\ShohinMasterMainte01\src\main\java
+C:\pleiades\2025-06\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2097237722.index
+\MVCTEST_DB\src\main\java
+C:\pleiades\2025-06\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\246283495.index
+\kakaku\src\main\java
+C:\pleiades\2025-06\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2116103295.index
+\kakaku2\src\main\java
+C:\pleiades\2025-06\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2323125221.index
+\MVCTEST2\src\main\java
+C:\pleiades\2025-06\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2251736392.index
+\exBoardModel\src\main\java

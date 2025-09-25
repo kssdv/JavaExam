@@ -1,0 +1,14 @@
+package myproject01;
+
+import java.text.NumberFormat;
+
+public class exam03 {
+
+	public static void main(String[] args) {
+		int num = 1000000000;
+		NumberFormat formatter = NumberFormat.getInstance();
+		String formattedNum = formatter.format(num);
+		System.out.println(formattedNum);
+	}
+
+}

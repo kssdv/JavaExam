@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="hasShownOverlayPopupBefore" value="true"/>
+	<section name="java.lang.Class">
+		<item key="replaceBarOpen" value="true"/>
+		<list key="findhistory">
+			<item value="&amp;&amp;"/>
+			<item value="txy"/>
+			<item value="int"/>
+			<item value="Arrays"/>
+			<item value=" b"/>
+			<item value=" a"/>
+			<item value="n1"/>
+		</list>
+		<list key="replacehistory">
+			<item value="||"/>
+			<item value="tyx"/>
+			<item value="long"/>
+			<item value=" num[2]"/>
+			<item value="num[1]"/>
+			<item value="num[0]"/>
+		</list>
+	</section>
+</section>

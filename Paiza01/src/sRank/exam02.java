@@ -1,0 +1,47 @@
+package sRank;
+
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class exam02 {
+	
+	private static int[] memo;
+	
+	static int Mex(HashSet<Integer> set) {
+		int mex = 0;
+		while(set.contains(mex)) {
+			mex++;
+		}
+		return mex;
+	}
+	
+	public static int Grundy(int x) {
+		if(memo == null) {
+			memo = new int[10000];
+			for(int j=0; j<memo.length; j++) {
+				memo[j] = -1; // 未計算を示す
+			}
+		}
+		if(x == 0 || x == 1) {
+			memo[x] = 0;
+			return 0;
+		}
+		if(memo[x] != -1) {
+			return memo[x]; // 既に計算済み
+		}
+		HashSet<Integer> seenValues = new HashSet<Integer>();
+		for(int i=0; i<=x-2; i++) {
+			seenValues.add(Grundy(i) ^ Grundy(x - i - 2));
+		}
+		
+		memo[x] = Mex(seenValues);
+		return memo[x];
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int result = Grundy(Integer.parseInt(sc.nextLine()));
+		System.out.println(result);
+	}
+
+}

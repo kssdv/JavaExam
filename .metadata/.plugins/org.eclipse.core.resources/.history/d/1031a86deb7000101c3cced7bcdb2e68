@@ -1,0 +1,14 @@
+package myproject01;
+
+import java.util.Scanner;
+
+public class exam02 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		StringJoiner sj = new StringJoiner();
+		String[] line = "994 267 101 579 874 986 32 528 253 822".split(" ");
+		System.out.println(line);
+	}
+
+}

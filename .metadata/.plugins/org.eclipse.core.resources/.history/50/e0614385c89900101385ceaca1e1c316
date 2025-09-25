@@ -1,0 +1,19 @@
+package sRank;
+
+import java.util.Scanner;
+
+public class exam02 {
+	
+	private static int[] memo;
+	
+	static int Mex(Hashset<Integer> set) {
+		
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = Integer.parseInt(sc.nextLine());
+		
+	}
+
+}

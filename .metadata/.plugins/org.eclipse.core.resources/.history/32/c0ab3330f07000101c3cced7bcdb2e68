@@ -1,0 +1,18 @@
+package myproject01;
+
+public class exam04 {
+
+	public static void main(String[] args) {
+		String str1 = "1507096390563720195197266839249706211166300673746527173353033868235540146558593627051";
+//		System.out.println("str1.length : " + str1.length());
+		StringBuilder sb = new StringBuilder(str1);
+		int n = str1.length();
+		while(n - 3 > 0 ) {
+			System.out.println(sb.insert(n-3, ","));
+			System.out.println(sb.toString());
+			n -= 3;
+		}
+//		System.out.println(sb.insert(5, ','));
+	}
+
+}

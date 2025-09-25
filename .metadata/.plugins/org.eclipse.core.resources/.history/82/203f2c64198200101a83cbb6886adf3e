@@ -1,0 +1,126 @@
+// マップの書き換え・縦横Java編（paizaランクB相当）
+// https://paiza.jp/works/mondai/b_rank_new_level_up_problems/b_rank_new_level_up_problems__get_upsidedown/edit?language_uid=java&t=ada40a804666ccb369e6c4c005ee7c2d
+package bRank;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Scanner;
+class Member3 {
+	String name;
+	int money;
+	boolean subscribe=false;
+}
+
+public class exam12 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+//		Hashtable<String, Integer> ht = new Hashtable<>();
+		List<Member3> members = new ArrayList<>();
+		int num = Integer.parseInt(sc.nextLine());
+		List<String> subscribers = new ArrayList<>();
+		Hashtable<String, int[]> ht = new Hashtable<>();
+		
+		for(int i=0; i<num; i++) {
+			String[] temp = sc.nextLine().split(" ");
+			String name = temp[0];
+			boolean isDonate = temp[1].equals("give");
+			boolean isAlready = ht.contains(name);
+			
+			if(isDonate) {
+				int money = Integer.parseInt(temp[2]);
+				if(isAlready) {
+					
+				}else {
+					ht.putAll(name, {money, 0});
+				}
+			}else {
+				
+			}
+		}
+		
+		for(int i=0; i<num; i++) {
+			Member3 member = new Member3();
+			String[] temp = sc.nextLine().split(" ");
+			String name = temp[0];
+			boolean isDonate = temp[1].equals("give");
+			member.name = name;
+			if(isDonate) {
+				member.money += Integer.parseInt(temp[2]);
+			}else {
+				member.subscribe = true;
+				subscribers.add(name);
+			}
+			members.add(member);
+		}
+		List<Member3> tmembers = new ArrayList<>();
+//		for(int i=0; i<members.size(); i++) {
+//			boolean flag = true;
+//			for(int j=0; j<tmembers.size(); j++) {
+//				if(members.get(i).name.equals(tmembers.get(j).name)) {
+//					flag = false;
+//					Member3 m = members.get(i);
+//					
+//					
+//				}
+//			}
+//			if(flag) {
+//				tmembers.add(members.get(i));
+//			}
+//		}
+		for(int i=0; i<members.size()-1; i++) {
+			for(int j=i+1; j<members.size(); j++) {
+				if(members.get(i).money < members.get(j).money) {
+					Member3 tmember = members.get(i);
+					members.set(i, members.get(j));
+					members.set(j, tmember);
+				}
+				if(members.get(i).money == members.get(j).money && (members.get(i).name).compareTo(members.get(j).name) < 0) {
+					Member3 tmember = members.get(i);
+					members.set(i, members.get(j));
+					members.set(j, tmember);
+				}
+			}
+		}
+		for(int i=0; i<members.size()-1; i++) {
+			for(int j=i+1; j<members.size(); j++) {
+//				if(members.get(i).money < members.get(j).money) {
+//					Member3 tmember = members.get(i);
+//					members.set(i, members.get(j));
+//					members.set(j, tmember);
+//				}
+				if(members.get(i).money == members.get(j).money && (members.get(i).name).compareTo(members.get(j).name) < 0) {
+					Member3 tmember = members.get(i);
+					members.set(i, members.get(j));
+					members.set(j, tmember);
+				}
+			}
+		}
+		// print all donators
+		members.forEach(member -> {
+			if(member.money > 0) {
+				System.out.println(member.name+", "+member.money);
+			}
+		});
+		
+		// print all subscribers
+		Collections.sort(subscribers);
+		subscribers.forEach(name -> System.out.println(name));
+	}
+	
+	public static Member2 addMoney() {
+		
+		return null;
+	}
+	
+	public static int[] str2int(String[] str) {
+		int[] lst = new int[str.length];
+		for(int i=0; i<str.length; i++) {
+			lst[i] = Integer.parseInt(str[i]);
+		}
+		return lst;
+	}
+
+}

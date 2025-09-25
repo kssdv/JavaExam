@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="リソース &apos;kakaku&apos; を削除" deleteContents="false" description="リソース &apos;kakaku&apos; を削除" element1="/kakaku" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1753660503500"/>&#x0A;<refactoring comment="Copy Project &apos;MVCTEST2&apos;" description="Copy Project &apos;MVCTEST2&apos;" destination="C:/pleiades/2025-06/workspace" element="/MVCTEST2" flags="7" id="org.eclipse.ltk.core.refactoring.copyproject.resource" name="MVCTEST2(kakaku)" stamp="1753674851868"/>
+</session>

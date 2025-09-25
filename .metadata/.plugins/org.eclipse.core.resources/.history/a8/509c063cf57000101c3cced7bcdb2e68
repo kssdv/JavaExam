@@ -1,0 +1,11 @@
+package myproject01;
+
+public class exam05 {
+
+	public static void main(String[] args) {
+		int line = 4;
+		String[] lines = "2 4 3 1".split(" ");
+		
+	}
+
+}

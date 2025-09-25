@@ -1,0 +1,12 @@
+package bRank;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class exam14 {
+
+	public static void main(String[] args) {
+		List<Integer> lst = new ArrayList<>();
+	}
+
+}

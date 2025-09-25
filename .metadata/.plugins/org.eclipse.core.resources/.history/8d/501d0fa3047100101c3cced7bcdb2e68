@@ -1,0 +1,17 @@
+package myproject01;
+
+import java.util.Scanner;
+
+public class exam07 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String[] line = sc.nextLine().split(" ");
+		
+		for(int i=0; i<Integer.parseInt(line[0]); i++) {
+			int temp = Integer.parseInt(sc.nextLine());
+			System.out.println(String.format("%"+line[1]+"d", temp));
+		}
+	}
+
+}

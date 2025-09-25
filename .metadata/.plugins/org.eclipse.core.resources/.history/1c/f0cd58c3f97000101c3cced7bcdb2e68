@@ -1,0 +1,28 @@
+package myproject01;
+
+import java.util.Scanner;
+
+public class exam05 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String[] line1 = sc.nextLine().split(" ");
+		String[] line2 = sc.nextLine().split(" ");
+		String[] line3 = sc.nextLine().split(" ");
+		int len = Integer.parseInt(line1[0]);
+		int cnt = 0;
+		
+		for(int i=0; i<Integer.parseInt(line1[1]); i++) {
+			for(int j=0; j<Integer.parseInt(line3[i]); j++) {
+				if(j==0) {
+					System.out.print(line2[cnt]);
+				}else {
+					System.out.print(" "+line2[cnt]);
+				}
+				cnt ++;
+			}
+			System.out.println();
+		}
+	}
+
+}

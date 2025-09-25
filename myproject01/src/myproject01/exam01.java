@@ -1,0 +1,13 @@
+package myproject01;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class exam01 {
+
+	public static void main(String[] args) {
+		List<Integer> scores = new ArrayList<>();
+		
+	}
+
+}

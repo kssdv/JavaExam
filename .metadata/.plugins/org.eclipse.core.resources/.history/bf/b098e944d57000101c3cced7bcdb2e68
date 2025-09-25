@@ -1,0 +1,18 @@
+package myproject01;
+
+import java.util.Scanner;
+
+public class exam01 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+        String[] str1 = sc.nextLine().split(" ");
+        int s = Integer.parseInt(str1[0]);
+        int a = Integer.parseInt(str1[1]);
+        int t = Integer.parseInt(str1[2]);
+        
+        System.out.println((t*a)/(s*a));
+
+	}
+
+}

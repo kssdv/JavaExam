@@ -1,0 +1,40 @@
+package myproject01;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class exam02 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String[] str_capa = sc.nextLine().split(" ");
+		String[] check_list = sc.nextLine().split(" ");
+		List<Integer> capa = new ArrayList<>();
+		//全体ファイルの総容量
+		int full = 0;
+		int downloaded = 0;
+		int yet = 0;
+		
+		
+		for(int i=0; i<str_capa.length; i++) {
+			int tmp =Integer.parseInt(str_capa[i]);
+			capa.add(tmp);
+			full += tmp;
+			if(check_list[i].equals("o")) {
+				downloaded += tmp;
+			}else {
+				yet += tmp;
+			}
+		}
+		
+		System.out.println("full : "+full);
+		System.out.println("downloaded : "+downloaded);
+		System.out.println("yet : "+yet);
+		
+//		System.out.println("13+17 = " + downloaded);
+//		System.out.println("13+17+77+89+25 = " + full);
+		System.out.println("percent : "+(int) ((0.0+downloaded)/(0.0+full)*100));
+	}
+
+}

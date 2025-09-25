@@ -1,0 +1,17 @@
+package sRank;
+
+import java.util.Scanner;
+
+public class exam03 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int[] grundy = new int[n+1];
+		
+		for(int x=2; x<n+1; x++) {
+			HashSet<Integer> check = new HashSet<>();
+		}
+	}
+
+}

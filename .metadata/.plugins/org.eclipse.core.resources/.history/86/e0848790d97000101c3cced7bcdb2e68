@@ -1,0 +1,11 @@
+package myproject01;
+
+public class exam02 {
+
+	public static void main(String[] args) {
+		System.out.println("13+17 = " + (13 + 17));
+		System.out.println("13+17+77+89+25 = " + (13+17+77 + 89 + 25));
+		System.out.println((0.0+13 + 17)/(0.0+13+17+77 + 89 + 25));
+	}
+
+}

@@ -1,0 +1,12 @@
+package myproject01;
+
+import java.util.Scanner;
+
+public class exam05 {
+
+	public static void main(String[] args) {
+		double line = Double.parseDouble("3.14");
+		System.out.println(line);
+	}
+
+}

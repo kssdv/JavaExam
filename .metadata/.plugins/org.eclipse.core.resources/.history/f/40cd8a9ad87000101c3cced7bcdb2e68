@@ -1,0 +1,13 @@
+package myproject01;
+
+public class exam02 {
+
+	public static void main(String[] args) {
+		// breakfast 7, launch 13, dinner 19
+		String time = "23 56";
+		int hour = Integer.parseInt(time.split(" ")[0]);
+		System.out.println(hour);
+
+	}
+
+}

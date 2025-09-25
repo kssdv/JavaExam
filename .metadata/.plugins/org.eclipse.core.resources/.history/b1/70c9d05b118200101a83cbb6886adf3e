@@ -1,0 +1,21 @@
+package bRank;
+
+public class exam13 {
+
+	public static void main(String[] args) {
+		String[] str = {"a", "b", "z","d","x","e"};
+
+		for(int i=1; i<str.length; i++) {
+			if(str[i-1].compareTo(str[i]) > 1) {
+				String t = str[i];
+				str[i] = str[i-1];
+				str[i-1] = t;
+			}
+		}
+		
+		for(String s : str) {
+			System.out.println(s);
+		}
+	}
+
+}

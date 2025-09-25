@@ -1,0 +1,19 @@
+package myproject01;
+
+public class exam01 {
+
+	public static void main(String[] args) {
+		String line = "2 3 7";
+        String[] lines = line.split(" ");
+        int a = lines[0];
+        int b = lines[1];
+        int c = lines[2];
+        if(a * b <= c){
+            System.out.println("YES");
+        }else{
+            System.out.println("NO");
+        }
+
+	}
+
+}

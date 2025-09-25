@@ -1,0 +1,36 @@
+package myproject01;
+
+import java.util.Scanner;
+
+public class exam37 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		sc.nextLine();
+		int[] lst = str2int(sc.nextLine().split(" "));
+		int max = lst[0];
+		int min = lst[0];
+		
+		for(int i=0; i<lst.length; i++) {
+			if(max < lst[i]) {
+				max = lst[i];
+			}
+			if(min > lst[i]) {
+				min = lst[i];
+			}
+		}
+		
+		System.out.printf("%d %d", max, min);
+		
+	}
+	
+	public static int[] str2int(String[] str) {
+		int[] lst = new int[str.length];
+		for(int i=0; i<str.length; i++) {
+			lst[i] = Integer.parseInt(str[i]);
+		}
+		
+		return lst;
+	}
+
+}

@@ -1,0 +1,16 @@
+package myproject01;
+
+import java.util.Scanner;
+
+public class exam05 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String[] line1 = sc.nextLine().split(" ");
+		String[] line2 = sc.nextLine().split(" ");
+		String[] line3 = sc.nextLine().split(" ");
+		int len = Integer.parseInt(line1[0]);
+		
+	}
+
+}

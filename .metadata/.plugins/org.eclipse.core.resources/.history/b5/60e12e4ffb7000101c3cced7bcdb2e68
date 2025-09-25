@@ -1,0 +1,16 @@
+package myproject01;
+
+import java.util.Scanner;
+
+public class exam05 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+//        double line = Double.parseDouble(sc.nextLine());
+		String[] line = sc.nextLine().split(" ");
+		String tmp = "%."+line[1]+"f";
+		System.out.println(tmp);
+        System.out.println(String.format(tmp, line[0]));
+	}
+
+}

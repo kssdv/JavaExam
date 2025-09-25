@@ -1,0 +1,9 @@
+package myproject01;
+
+public class exam07 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+	}
+
+}

@@ -1,0 +1,10 @@
+package myproject01;
+
+public class exam04 {
+
+	public static void main(String[] args) {
+		String str1 = "150709639056372019519726683924970621116630067374652717335303386823554014655859362705";
+		System.out.println(str1.length());
+	}
+
+}

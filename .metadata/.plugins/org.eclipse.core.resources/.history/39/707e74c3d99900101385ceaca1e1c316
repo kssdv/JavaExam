@@ -1,0 +1,63 @@
+package sRank;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Scanner;
+
+public class exam04 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String res = "";
+		int n = sc.nextInt();
+		List<Integer> lst = new ArrayList<>();
+		boolean flag = false;
+		for(int i=1; i<=n; i++) {
+			if(tile(i)) {
+				lst.add(i);
+				flag = true;
+			}else {
+				flag = false;
+			}
+		}
+		if(flag) {
+			System.out.println("me");
+			res = lst.get(0)+"";
+			for(int i=1; i<lst.size(); i++) {
+				res += " "+lst.get(i);
+			}
+			System.out.println(res);
+		}else {
+			System.out.println("paiza");
+		}
+		
+	}
+	
+	static boolean tile(int n) {
+int[] grundy = new int[n+1];
+		
+		for(int x=2; x<n+1; x++) {
+			HashSet<Integer> check = new HashSet<>();
+			for(int i=0; i<x-1; i++) {
+				check.add(grundy[i] ^ grundy[x-i-2]);
+			}
+			int ans = 0;
+			while(true){
+				if (!check.contains(ans)){
+					grundy[x] = ans;
+					break;
+				}
+				ans += 1;
+			}
+		}
+		if(grundy[n] == 0) {
+//			System.out.println("paiza");
+			return false;
+		}else {
+//			System.out.println("me");
+			return true;
+		}
+	}
+
+}

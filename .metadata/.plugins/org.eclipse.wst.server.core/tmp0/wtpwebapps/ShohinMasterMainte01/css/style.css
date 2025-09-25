@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+.ichiran-nav {
+	display: flex;
+	justify-content: space-between;
+}
+
+/*.ichiran-tanka{*/
+/*	text-align: end;*/
+/*}*/
+.container {
+	width: 600px;
+	height: 500px;
+	margin: auto;
+}
+
+.touroku-btns {
+	display: flex;
+	justify-content: space-between;
+	margin-left: 25%;
+	margin-top: 25%;
+}
+
+.btns {
+	display: flex;
+	justify-content: space-between;
+	margin-left: 25%;
+	margin-top: 15%;
+}
+
+.btn {
+	width: 90px;
+	height: 45px;
+
+}
+
+.touroku-btn {
+	width: 90px;
+	height: 45px;
+	background-color: steelblue;
+	color: white;
+}
+
+.touroku-btn2 {
+	width: 90px;
+	height: 45px;
+}
+
+.btn2 {
+	width: 85px;
+	height: 45px;
+	background-color: steelblue;
+	color: white;
+
+}
+
+.div2 {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10%;
+	margin-left: 25%;
+}
+
+.middle-div { 
+	width: 60%;
+	height: 50%;
+}
+
+.insert-btn {
+	background-color: steelblue;
+	color: white;
+	margin-top: 20px;
+	height: 50px;
+	width: 150px;
+}
+
+table {
+	width: 100%;
+	border: 1px solid #444444;
+}
+
+th,
+td {
+	text-align: center;
+	border: 1px solid #444444;
+}
+
+#result {
+	color: red;
+}
+
+.input {
+	text-align: center;
+}
+
+.ichiran-select {
+	display: flex;
+	height: 20px;
+	margin-top: 30px;
+	margin-left: 900px;
+}
+ichiran-select-btn{
+	height: 19px;
+}

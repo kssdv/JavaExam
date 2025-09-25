@@ -13,7 +13,7 @@ public class exam04 {
 		int n = sc.nextInt();
 		List<Integer> lst = new ArrayList<>();
 		boolean flag = false;
-		for(int i=1; i<=n; i++) { 
+		for(int i=1; i<=n; i++) {
 			if(tile(i)) {
 				lst.add(i);
 				flag = true;

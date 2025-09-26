@@ -1,0 +1,55 @@
+package tip;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class exam03 {
+
+	public static void main(String[] args) {
+		// 중복순열 1,2,3을 길이가 5인 배열에 배치시키는 모든 경우의 수
+		// 使用できる数字
+		int[] options = {1,2,3};
+		// 作りたい配列の長さ
+		int length = 5;
+		// 結果を保存するリスト
+		List<List<Integer>> result = new ArrayList<>();
+		// 重複数列のメソッド呼び出し
+		findCases(options, length, new ArrayList<>(), result);
+		
+		System.out.println("結果の一部だけ出力:");
+		for (int i = 0; i < 20; i++) {
+            System.out.println(result.get(i));
+        }
+        System.out.println("...");
+        System.out.println("총 경우의 수: " + result.size());
+    }
+
+    /**
+     * 중복 순열의 모든 경우를 찾는 재귀 메서드
+     * @param options 사용할 수 있는 숫자 배열
+     * @param length 만들고자 하는 배열(리스트)의 길이
+     * @param current 현재까지 만들어진 순열
+     * @param result 최종 결과를 저장할 리스트
+     */
+    private static void findCases(int[] options, int length, List<Integer> current, List<List<Integer>> result) {
+        // 1. 재귀 종료 조건: 현재 만들어진 순열의 길이가 목표 길이와 같아지면
+        if (current.size() == length) {
+            result.add(new ArrayList<>(current)); // 결과에 추가하고 종료
+            return;
+        }
+
+        // 2. 재귀 호출: 사용할 수 있는 모든 숫자를 순회
+        for (int i = 0; i < options.length; i++) {
+            // (1) 선택: 현재 숫자를 리스트에 추가
+            current.add(options[i]);
+            
+            // (2) 탐색: 다음 자리를 채우기 위해 재귀 호출
+            // 조합(Combination)과 달리, 다음 탐색 위치를 i+1이 아닌 처음부터 다시 탐색해야 하므로
+            // 별도의 시작 인덱스를 넘겨줄 필요가 없음
+            findCases(options, length, current, result);
+            
+            // (3) 해제 (백트래킹): 방금 추가했던 숫자를 제거하여 다음 반복에서 다른 숫자를 선택할 수 있게 함
+            current.remove(current.size() - 1);
+        }
+    }
+}

@@ -1,0 +1,15 @@
+package tip;
+
+public class exam03 {
+
+	public static void main(String[] args) {
+		// 중복순열 1,2,3을 길이가 5인 배열에 배치시키는 모든 경우의 수
+		// 使用できる数字
+		int[] options = {1,2,3};
+		// 作りたい配列の長さ
+		int length = 5;
+		// 結果を保存するリスト
+		List<List<Integer>> result = new ArrayList<>();
+	}
+
+}

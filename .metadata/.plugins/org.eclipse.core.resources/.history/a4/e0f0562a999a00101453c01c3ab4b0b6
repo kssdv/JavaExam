@@ -1,0 +1,38 @@
+package aRank;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class exam14 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int[] num = str2int(sc.nextLine().split(" "));
+		char[] gcp = sc.nextLine().toCharArray();
+		int cnt = 0;
+		
+		for(char c : gcp) {
+			if(c == 'G') cnt++;
+		}
+		System.out.println(cnt);
+	}
+	private static void combine(int[] nums, int r, int start, List<Integer> current, List<List<Integer>> result) {
+	    if (current.size() == r) {
+	        result.add(new ArrayList<>(current));
+	        return;
+	    }
+	    for (int i = start; i < nums.length; i++) {
+	        current.add(nums[i]);
+	        combine(nums, r, i + 1, current, result);
+	        current.remove(current.size() - 1);
+	    }
+	}
+	private static int[] str2int(String[] str) {
+		int[] lst = new int[str.length];
+		for(int i=0; i<str.length; i++) {
+			lst[i] = Integer.parseInt(str[i]);
+		}
+		return lst;
+	}
+}

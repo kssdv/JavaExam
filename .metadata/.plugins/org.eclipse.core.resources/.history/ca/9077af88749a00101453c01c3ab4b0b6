@@ -1,0 +1,33 @@
+package aRank;
+
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Scanner;
+
+public class exam12 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int[] num = str2int(sc.nextLine().split(" "));
+		char[] clst = sc.nextLine().toCharArray();
+		Hashtable<Character, Character> rpc = new Hashtable<>();
+		Hashtable<Character, Integer> finger = new Hashtable<>();
+		List<Integer> expect = new ArrayList<>();
+		rpc.put('G', 'P');
+		rpc.put('P', 'C');
+		rpc.put('C', 'G');
+		finger.put('G', 0);
+		finger.put('P', 5);
+		finger.put('C', 2);
+		
+	}
+
+	private static int[] str2int(String[] str) {
+		int[] lst = new int[str.length];
+		for(int i=0; i<str.length; i++) {
+			lst[i] = Integer.parseInt(str[i]);
+		}
+		return lst;
+	}
+}

@@ -1,0 +1,67 @@
+package aRank;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Scanner;
+
+public class exam12 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int[] num = str2int(sc.nextLine().split(" "));
+		char[] clst = sc.nextLine().toCharArray();
+		Hashtable<Character, Character> rpc = new Hashtable<>();
+		Hashtable<Character, Integer> finger = new Hashtable<>();
+		List<Integer> expect = new ArrayList<>();
+		int sum = 0;
+		int cnt = 0;
+		rpc.put('G', 'P');
+		rpc.put('P', 'C');
+		rpc.put('C', 'G');
+		finger.put('G', 0);
+		finger.put('P', 5);
+		finger.put('C', 2);
+		for(char c : clst) {
+			expect.add(finger.get(c));
+		}
+		Collections.sort(expect);
+		for(int i : expect) {
+			if(sum == num[1]) {
+				break;
+			}else {
+				sum += i;
+				cnt++;
+			}
+//			System.out.println(i);
+		}
+		System.out.println(cnt);
+	
+		int[] nums = {1, 2, 3, 4};
+	    List<List<Integer>> result = new ArrayList<>();
+	    int r = 2; // 조합의 크기
+	    combine(nums, r, 0, new ArrayList<>(), result);
+	    System.out.println(result);
+	}
+	
+	private static void combine(int[] nums, int r, int start, List<Integer> current, List<List<Integer>> result) {
+	    if (current.size() == r) {
+	        result.add(new ArrayList<>(current));
+	        return;
+	    }
+	    for (int i = start; i < nums.length; i++) {
+	        current.add(nums[i]);
+	        combine(nums, r, i + 1, current, result);
+	        current.remove(current.size() - 1);
+	    }
+	}
+
+	private static int[] str2int(String[] str) {
+		int[] lst = new int[str.length];
+		for(int i=0; i<str.length; i++) {
+			lst[i] = Integer.parseInt(str[i]);
+		}
+		return lst;
+	}
+}

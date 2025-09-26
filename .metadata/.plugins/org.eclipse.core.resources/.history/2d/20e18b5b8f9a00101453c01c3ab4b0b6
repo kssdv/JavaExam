@@ -1,0 +1,9 @@
+package aRank;
+
+public class exam14 {
+
+	public static void main(String[] args) {
+		List<Integer> lst = new ArrayList<>();
+	}
+
+}

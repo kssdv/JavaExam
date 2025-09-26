@@ -1,0 +1,22 @@
+package aRank;
+
+import java.util.Scanner;
+
+public class exam12 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int[] num = str2int(sc.nextLine().split(" "));
+		char[] clst = sc.nextLine().toCharArray();
+		Hashtable<> ht = new Hashtable<>();
+		
+	}
+
+	private static int[] str2int(String[] str) {
+		int[] lst = new int[str.length];
+		for(int i=0; i<str.length; i++) {
+			lst[i] = Integer.parseInt(str[i]);
+		}
+		return lst;
+	}
+}

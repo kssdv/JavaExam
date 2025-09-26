@@ -1,0 +1,80 @@
+package aRank;
+
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Scanner;
+
+public class exam14 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Hashtable<Character, Character> win = new Hashtable<>();
+		Hashtable<Character, Integer> finger = new Hashtable<>();
+		int[] num = str2int(sc.nextLine().split(" "));
+		char[] gcp = sc.nextLine().toCharArray();
+		List<Integer> tmp = new ArrayList<>();
+//		for(char c : gcp) {
+//			System.out.println(c);
+//		}
+		
+		// 勝つ手
+		win.put('G', 'P');
+		win.put('P', 'C');
+		win.put('C', 'G'); 
+		// 指の数
+		finger.put('G', 0);
+		finger.put('P', 5);
+		finger.put('C', 2);
+		
+		int cnt = 0;
+		// グーだけカウント
+		for(char c : gcp) {
+			if(win.get(c) == 'G') {
+				cnt++;
+			}else {
+				tmp.add(finger.get(win.get(c)));
+			}
+		}
+		System.out.println(cnt);
+		// グー以外の勝手のArray
+//		int[] cp = new int[gcp.length - cnt];
+		int[] cp = new int[tmp.size()];
+		int cnt2 = 0;
+		for(int i : tmp) {
+			if(i != 'G') {
+				cp[cnt2] = finger.get(i);
+				cnt2++;
+			}
+		}
+		// 
+		for(int i : cp) {
+			System.out.println(i);
+		}
+		
+//		int[] nums = {1, 2, 3, 4};
+//	    List<List<Integer>> result = new ArrayList<>();
+//	    int r = 2; // 조합의 크기
+//	    combine(nums, r, 0, new ArrayList<>(), result);
+//	    System.out.println(result);
+		
+	}
+	private static void combine(int[] nums, int r, int start, List<Integer> current, List<List<Integer>> result) {
+	    if (current.size() == r) {
+	        result.add(new ArrayList<>(current));
+	        return;
+	    }
+	    for (int i = start; i < nums.length; i++) {
+	        current.add(nums[i]);
+	        combine(nums, r, i + 1, current, result);
+	        current.remove(current.size() - 1);
+	    }
+	}
+	private static int[] str2int(String[] str) {
+		int[] lst = new int[str.length];
+		for(int i=0; i<str.length; i++) {
+			lst[i] = Integer.parseInt(str[i]);
+		}
+		return lst;
+	}
+}

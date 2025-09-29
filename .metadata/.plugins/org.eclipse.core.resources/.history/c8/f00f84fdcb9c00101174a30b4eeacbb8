@@ -1,0 +1,18 @@
+package aRank;
+
+import java.util.Scanner;
+
+public class exam16 {
+
+	public static void main(String[] args) {
+		// 入力
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int m = sc.nextInt();
+		char[] handArray = sc.next().toCharArray();
+		
+		// 相手ハンド分析
+		
+	}
+
+}

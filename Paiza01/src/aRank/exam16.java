@@ -1,0 +1,61 @@
+package aRank;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class exam16 {
+
+	public static void main(String[] args) {
+		// 入力
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int m = sc.nextInt();
+		char[] handArray = sc.next().toCharArray();
+		
+		// 相手ハンド分析
+		int[] handCount = new int[3]; //{G, C, P}
+		for(char hand : handArray) {
+			switch(hand) {
+			case 'G':
+				handCount[0]++;
+				break;
+			case 'C':
+				handCount[1]++;
+				break;
+			case 'P':
+				handCount[2]++;
+				break;
+			}// switch
+		}// for
+		
+		// ハンドパターン列挙
+		ArrayList<Integer[]> patternList = new ArrayList<>(100);
+		for(int i=0; i<=n; i++) {
+			for(int j=0; j<=n; j++) {
+				int yubi = i * 2 + j * 5; // 指数
+				int remain = n - i - j; // 残勝負数
+				
+				if(yubi == m && remain >= 0) {
+					// 総勝負数内に指を堯生きる組み合わせ
+					Integer[] pattern = {remain, i, j}; //{g, c, p}
+					patternList.add(pattern);
+				}else if(yubi > m || remain < 0) {
+					//勝負数を使い切るか、指数がオーバーしたら次のループ
+					break;
+				}//if
+			}//for
+		}//for
+		
+		// 最大勝利数のパターンを計算
+		int maxWin = 0;
+		for(Integer[] pattern : patternList) {
+			int win = 0;
+			win += Math.min(handCount[0], pattern[2]); //相手がグー、自分がパー
+			win += Math.min(handCount[2], pattern[1]); //相手がパー、自分がチョキ
+			win += Math.min(handCount[1], pattern[0]); //相手がチョキ、自分がグー
+			if(win > maxWin) maxWin = win;
+		}//for
+		System.out.println(maxWin);
+	}
+
+}

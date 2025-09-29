@@ -1,0 +1,16 @@
+package aRank;
+
+import java.math.BigInteger;
+
+public class exam21 {
+
+	public static void main(String[] args) {
+		BigInteger num1 = new BigInteger("12345678");
+		BigInteger num2 = new BigInteger("10000");
+		
+		BigInteger res = num1.divide(num2);
+		System.out.println(res);
+		
+	}
+
+}

@@ -1,0 +1,33 @@
+package aRank;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class exam20 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int k = sc.nextInt();
+		int n = sc.nextInt();
+		int sum = 0;
+		Queue<Integer> queue = new LinkedList<>();
+		for(int i=0; i<k; i++) {
+			queue.add(1);
+			sum += 1;
+		}
+		queue.add(sum);
+		
+		for(int i=k; i<n; i++) {
+			sum = sum - queue.poll() + sum;
+			queue.add(sum);
+			System.out.println(sum);
+		}
+		
+//		sum = sum - queue.poll();
+//		System.out.println(queue.poll());
+//		queue.add(13);
+		
+	}
+
+}

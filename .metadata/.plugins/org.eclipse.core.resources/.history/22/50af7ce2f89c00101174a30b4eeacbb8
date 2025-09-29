@@ -1,0 +1,80 @@
+package aRank;
+
+import java.util.Scanner;
+
+public class exam19 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int h = sc.nextInt();
+		int w = sc.nextInt();
+		int n = sc.nextInt();
+		String[][] grid = new String[h][w];
+		for(int i=0; i<h; i++) {
+			for(int j=0; j<w; j++) {
+				grid[i][j] = ".";
+			}
+		}
+		
+		for(int i=0; i<n; i++) {
+			int h1 = sc.nextInt();
+			int w1 = sc.nextInt();
+			int n1 = sc.nextInt();
+			int starth = findFloor2(grid, w1, n1);
+			drawFigure(grid, h1, w1, starth, n1);
+			printGrid(grid);
+			System.out.println("==============");
+		}
+		
+		
+		printGrid(grid);
+		
+	}
+	
+	private static int findFloor(String[][] grid, int w1, int n1) {
+		int starth = -1;
+		for(int i=grid.length-1; i>=0; i--) {
+			boolean flag = true;
+			for(int j=n1; j<n1+w1; j++) {
+				if(grid[i][j].equals("#")) flag = false;
+			}
+			if(flag) return i;
+		}
+		
+		return starth;
+	}
+	
+	private static int findFloor2(String[][] grid, int w1, int n1) {
+		int starth = -1;
+		for(int i=0; i<grid.length; i++) {
+			boolean flag = true;
+			for(int j=n1; j<n1+w1; j++) {
+				if(grid[i][j].equals("#")) flag = false;
+			}
+			if(flag) starth = i;
+		}
+		return starth;
+	}
+	
+	private static void drawFigure(String[][] grid, int h1, int w1, int starth, int n1) {
+		for(int i=starth; i>starth-h1; i--) {
+			if(i >= grid.length || i < 0) break;
+			for(int j=n1; j<n1+w1; j++) {
+				if(j >= grid[0].length || j < 0) break;
+				grid[i][j] = "#";
+			}
+		}
+		
+	}
+	
+	private static void printGrid(String[][] grid) {
+//		for(int i=grid.length-1; i>=0; i--) {
+		for(int i=0; i<grid.length; i++) {
+			for(int j=0; j<grid[0].length; j++) {
+				System.out.print(grid[i][j]);
+			}
+			System.out.println();
+		}
+	}
+
+}

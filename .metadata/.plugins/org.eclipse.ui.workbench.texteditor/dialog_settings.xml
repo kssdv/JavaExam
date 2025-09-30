@@ -4,6 +4,7 @@
 	<section name="java.lang.Class">
 		<item key="replaceBarOpen" value="true"/>
 		<list key="findhistory">
+			<item value="sum2"/>
 			<item value="rpc"/>
 			<item value="&amp;&amp;"/>
 			<item value="txy"/>
@@ -14,6 +15,7 @@
 			<item value="n1"/>
 		</list>
 		<list key="replacehistory">
+			<item value="sum"/>
 			<item value="win"/>
 			<item value="||"/>
 			<item value="tyx"/>

@@ -1,0 +1,32 @@
+package aRank;
+
+import java.util.Scanner;
+
+public class exam31 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		// x, y / N E S W
+		int[][] d = {{0,-1}, {1,0}, {0,1}, {-1,0}};
+		int direction = 0;
+		int x = sc.nextInt();
+		int y = sc.nextInt();
+		int n = sc.nextInt();
+		
+		for(int i=0; i<n; i++) {
+			char tmp = sc.next().charAt(0);
+			if(tmp == 'R') {
+				direction = (direction+1) % 4;
+				x += d[direction][0];
+				y += d[direction][1];
+			}else {
+				direction--;
+				if(direction < 0) direction += 4;
+				x += d[direction][0];
+				y += d[direction][1];
+			}
+			System.out.println(x + " " + y);
+		}
+	}
+
+}

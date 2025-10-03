@@ -1,0 +1,39 @@
+package aRank;
+
+import java.util.Scanner;
+
+public class exam27 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int h = sc.nextInt();
+		int w = sc.nextInt();
+		char[][] grid = new char[h][w];
+		
+		for(int i=0; i<h; i++) {
+			String tmp = sc.next();
+			grid[i] = tmp.toCharArray();
+		}
+		
+		if(h >= 2) {
+			for(int i=0; i<h; i++) {
+				for(int j=0; j<w; j++) {
+					if(i == 0) { // 左上端
+						if(grid[i+1][j] == '#') {
+							System.out.println(i+" "+j);
+						}
+					}else if(i == h - 1) { // 右上端
+						if(grid[i-1][j] == '#') {
+							System.out.println(i+" "+j);
+						}
+					}else {
+						if(grid[i+1][j] == '#' && grid[i-1][j] == '#') {
+							System.out.println(i+" "+j);
+						}
+					}
+				}
+			}
+		}
+	}
+
+}

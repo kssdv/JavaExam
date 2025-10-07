@@ -1,0 +1,38 @@
+package aRank;
+
+import java.util.Hashtable;
+import java.util.Scanner;
+
+public class exam32 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Hashtable<Character, int[]> ht = new Hashtable<>();
+							// {y, x}
+		ht.put('N', new int[] {-1, 0});
+		ht.put('E', new int[] {0, 1});
+		ht.put('S', new int[] {1, 0});
+		ht.put('W', new int[] {0, -1});
+		int h = sc.nextInt();
+		int w = sc.nextInt();
+		int sy = sc.nextInt();
+		int sx = sc.nextInt();
+		char m = (char)sc.next(); // E W S N
+		// '#'は障害物、'.'は移動可能は場所
+		char[][] grid = new char[h][w];
+		
+		for(int i=0; i<h; i++) {
+			char[] tmp = sc.next().toCharArray();
+			grid[i] = tmp;
+		}
+		int[] dir = ht.get(m);
+		
+		if(grid[sy+dir[0]][sx+dir[1]] == '#') {
+			System.out.println("No");
+		}else {
+			System.out.println("Yes");
+		}
+		
+	}
+
+}

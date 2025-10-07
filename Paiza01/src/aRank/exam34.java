@@ -1,0 +1,53 @@
+package aRank;
+
+import java.util.Hashtable;
+import java.util.Scanner;
+
+public class exam34 {
+	public static void main(String[] args) {
+		char[] directions = {'N', 'E', 'S', 'W'};
+		Hashtable<Character, int[]> direction = new Hashtable<>();
+		direction.put('N', new int[] {-1, 0});
+		direction.put('E', new int[] {0, 1});
+		direction.put('S', new int[] {1, 0});
+		direction.put('W', new int[] {0, -1});
+		int[] new_position = {0, 0};
+		Scanner sc = new Scanner(System.in);
+		int h = sc.nextInt();
+		int w = sc.nextInt();
+		char[][] grid = new char[h][w];
+		int sy = sc.nextInt();
+		int sx = sc.nextInt();
+		char d = sc.next().charAt(0);
+		int idx_d = 0;
+		for(int i=0; i<4; i++) { // idxを保存
+			if(d == directions[i]) idx_d = i;
+		}
+		char m = sc.next().charAt(0);
+		
+		for(int i=0; i<h; i++) {
+			char[] tmp = sc.next().toCharArray();
+			grid[i] = tmp;
+		}
+		
+		if(m == 'L') {
+			idx_d = idx_d - 1 < 0 ? idx_d - 1 + 4 : idx_d - 1;
+		}else {
+			idx_d = idx_d + 1 >= 4 ? idx_d + 1 - 4 : idx_d + 1;
+		}
+		
+		new_position = new int[] {sy + direction.get(directions[idx_d])[0], sx + direction.get(directions[idx_d])[1]};
+		
+		if(new_position[0] >= 0 && new_position[1] >= 0 && 
+				new_position[0] < grid.length && new_position[1] < grid[0].length) {
+			if(grid[new_position[0]][new_position[1]] == '#') {
+				System.out.println("No");
+			}else {
+				System.out.println("Yes");
+			}
+		}else {
+			System.out.println("No");
+		}
+	}
+
+}

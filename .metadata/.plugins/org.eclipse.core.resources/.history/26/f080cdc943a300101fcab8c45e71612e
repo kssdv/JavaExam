@@ -1,0 +1,31 @@
+package aRank;
+
+import java.util.Hashtable;
+import java.util.Scanner;
+
+public class exam34 {
+	public static void main(String[] args) {
+		char[] directions = {'N', 'E', 'S', 'W'};
+		Hashtable<Character, int[]> direction = new Hashtable<>();
+		direction.put('N', new int[] {-1, 0});
+		direction.put('E', new int[] {0, 1});
+		direction.put('S', new int[] {1, 0});
+		direction.put('W', new int[] {0, -1});
+		Scanner sc = new Scanner(System.in);
+		int h = sc.nextInt();
+		int w = sc.nextInt();
+		char[][] grid = new char[h][w];
+		int sy = sc.nextInt();
+		int sx = sc.nextInt();
+		char d = sc.next().charAt(0);
+		char m = sc.next().charAt(0);
+		
+		for(int i=0; i<h; i++) {
+			char[] tmp = sc.next().toCharArray();
+			grid[i] = tmp;
+		}
+		
+		
+	}
+
+}

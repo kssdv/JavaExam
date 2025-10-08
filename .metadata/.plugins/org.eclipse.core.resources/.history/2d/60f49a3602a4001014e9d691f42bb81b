@@ -1,0 +1,101 @@
+package aRank;
+
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Scanner;
+
+public class exam40 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		List<int[]> log = new ArrayList<>();
+		char[] directions = {'N', 'E', 'S', 'W'};
+		Hashtable<Character, int[]> direction = new Hashtable<>();
+		direction.put('N', new int[] {-1, 0});
+		direction.put('E', new int[] {0, 1});
+		direction.put('S', new int[] {1, 0});
+		direction.put('W', new int[] {0, -1});
+		Hashtable<Integer, Character> turn_log = new Hashtable<>();
+		int idx_d = 0;
+		int h = sc.nextInt();
+		int w = sc.nextInt();
+		int sy = sc.nextInt();
+		int sx = sc.nextInt();
+		int[] new_position = {sy, sx};
+		int n = sc.nextInt();
+		char[][] grid = new char[h][w];
+		for(int i=0; i<h; i++) {
+			char[] tmp = sc.next().toCharArray();
+			grid[i] = tmp;
+		}
+		boolean flag = true;
+		grid[new_position[0]][new_position[1]] = '*';
+		log.add(new_position);
+		int cnt = 1;
+		for(int i=0; i<n; i++) {
+			int itmp = sc.nextInt(); // 2, 1, 4 ... 動くマスの個数
+			char tmp = sc.next().charAt(0); // 'L' or 'R'
+			
+			turn_log.put(itmp, tmp);
+		}
+		if(flag) {
+			while(flag) {
+				new_position = new int[] {new_position[0] + direction.get(directions[idx_d])[0], new_position[1] + direction.get(directions[idx_d])[1]};
+//				if(new_position[0] >= 0 && new_position[1] >= 0 && 
+//						new_position[0] < grid.length && new_position[1] < grid[0].length) {
+//							if(grid[new_position[0]][new_position[1]] == '#' && flag) {
+				if(isInside(grid, new_position)) {
+//					if(grid[new_position[0]][new_position[1]] == '#' || grid[new_position[0]][new_position[1]] == '*' || flag) {
+					if(grid[new_position[0]][new_position[1]] == '#' || grid[new_position[0]][new_position[1]] == '*') {
+//								System.out.println("Stop");
+						flag = false;
+						break;
+					}else {
+//								System.out.println(new_position[0] + " " + new_position[1]);
+						grid[new_position[0]][new_position[1]] = '*';
+						log.add(new_position);
+					}
+				}else {
+//							System.out.println("Stop");
+					flag = false;
+					break;
+				}
+				if(turn_log.containsKey(cnt)) {
+					if(turn_log.get(cnt) == 'L') {
+						idx_d = idx_d - 1 < 0 ? idx_d - 1 + 4 : idx_d - 1;
+					}else {
+						idx_d = idx_d + 1 >= 4 ? idx_d + 1 - 4 : idx_d + 1;
+					}
+				}
+				
+//				if(cnt == 0) cnt++;
+				cnt++;
+				
+			}
+			
+		}
+				
+		for(int i=0; i<h; i++) {
+			System.out.printf("%02d", i);
+			for(int j=0; j<w; j++) {
+				System.out.print(grid[i][j]);
+			}
+			System.out.println();
+		}
+		
+	}
+	
+	private static boolean isInside(char[][] grid, int[] position) {
+		boolean flag = true;
+		
+		if(position[0] >= grid.length || position[0] < 0) {
+			flag = false;
+		}
+		if(position[1] >= grid[0].length || position[1] < 0) {
+			flag = false;
+		}
+		
+		return flag;
+	}
+
+}

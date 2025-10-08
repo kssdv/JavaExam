@@ -1,0 +1,85 @@
+package aRank;
+
+import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Scanner;
+
+public class exam38 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		List<int[]> log = new ArrayList<>();
+		char[] directions = {'N', 'E', 'S', 'W'};
+		Hashtable<Character, int[]> direction = new Hashtable<>();
+		direction.put('N', new int[] {-1, 0});
+		direction.put('E', new int[] {0, 1});
+		direction.put('S', new int[] {1, 0});
+		direction.put('W', new int[] {0, -1});
+		int idx_d = 0;
+		int h = sc.nextInt();
+		int w = sc.nextInt();
+		int sy = sc.nextInt();
+		int sx = sc.nextInt();
+		int[] new_position = {sy, sx};
+		int n = sc.nextInt();
+		char[][] grid = new char[h][w];
+		for(int i=0; i<h; i++) {
+			char[] tmp = sc.next().toCharArray();
+			grid[i] = tmp;
+		}
+		boolean flag = true;
+		grid[new_position[0]][new_position[1]] = '*';
+		int cnt = 0;
+		for(int i=0; i<n; i++) {
+			int itmp = sc.nextInt(); // 2, 1, 4 ... 動くマスの個数
+			char tmp = sc.next().charAt(0); // 'L' or 'R'
+			
+			if(flag) {
+				if(flag) {
+					while(cnt < itmp) {
+						cnt++;
+						new_position = new int[] {new_position[0] + direction.get(directions[idx_d])[0], new_position[1] + direction.get(directions[idx_d])[1]};
+						if(new_position[0] >= 0 && new_position[1] >= 0 && 
+								new_position[0] < grid.length && new_position[1] < grid[0].length) {
+							if(grid[new_position[0]][new_position[1]] == '#' && flag) {
+								System.out.println("Stop");
+								flag = false;
+								break;
+							}else {
+								System.out.println(new_position[0] + " " + new_position[1]);
+								grid[new_position[0]][new_position[1]] = '*';
+							}
+						}else {
+							System.out.println("Stop");
+							flag = false;
+							break;
+						}
+					}
+//					if(flag) {
+//						System.out.println(new_position[0] + " " + new_position[1]);
+//					}else {
+//						System.out.println((new_position[0] - direction.get(directions[idx_d])[0]) + " " + (new_position[1] - direction.get(directions[idx_d])[1]));
+//						System.out.println("Stop");
+//					}
+					
+				}
+				if(tmp == 'L') {
+					idx_d = idx_d - 1 < 0 ? idx_d - 1 + 4 : idx_d - 1;
+				}else {
+					idx_d = idx_d + 1 >= 4 ? idx_d + 1 - 4 : idx_d + 1;
+				}
+				
+			}
+			
+		}
+		
+//		for(int i=0; i<h; i++) {
+//			for(int j=0; j<w; j++) {
+//				System.out.print(grid[i][j]);
+//			}
+//			System.out.println();
+//		}
+		
+	}
+
+}

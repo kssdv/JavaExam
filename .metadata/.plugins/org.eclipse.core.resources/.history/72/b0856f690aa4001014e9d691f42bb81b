@@ -1,0 +1,66 @@
+package aRank;
+
+import java.util.Scanner;
+
+public class exam41 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int h = sc.nextInt();
+		int w = sc.nextInt();
+		char[][] grid = new char[h][w];
+//		int[] idx = new int[2];
+//		// 上下左右
+//		int[][] udlr = {{1, 0}, {-1, 0}, {0, -1}, {0, 1}};
+		int[] position = new int[2];
+		
+		for(int i=0; i<h; i++) {
+			char[] tmp = sc.next().toCharArray();
+			for(int j=0; j<tmp.length; j++) {
+				if(tmp[j] == '*') position = new int[] {i, j};
+			}
+			grid[i] = tmp;
+		}
+//		System.out.println(position[0] + " " + position[1]);
+		
+		UPLR(grid, position);
+		
+		pringGrid(grid);
+		
+//		for(int i=0; i<udlr.length; i++) {
+//			int[] tmp = new int[] {position[0] + udlr[0][i], position[1] + udlr[1][i]};
+//			if(isInside(grid, tmp)) {
+//				grid[tmp[0]][tmp[1]] = '*';
+//			}
+//		}
+		
+	}
+	
+	private static void pringGrid(char[][] grid) {
+		for(int i=0; i<grid.length; i++) {
+			for(int j=0; j<grid[0].length; j++) {
+				System.out.print(grid[i][j]);
+			}
+			System.out.println();
+		}
+	}
+	
+	// 上下左右を'*'に変えるメソッド
+	private static void UPLR(char[][] grid, int[] position) {
+		// 上下左右
+		int[][] udlr = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+		for(int i=0; i<udlr.length; i++) {
+			int[] tmp = new int[] {position[0] + udlr[i][0], position[1] + udlr[i][1]};
+			if(isInside(grid, tmp)) {
+				grid[tmp[0]][tmp[1]] = '*';
+			}
+		}
+	}
+	
+	private static boolean isInside(char[][] grid, int[] position) {
+//		boolean flag = true;
+		if(grid.length >= position[0] || position[0] < 0) return false;
+		if(grid[0].length >= position[1] || position[1] < 0) return false;		
+		return true;
+	}
+}

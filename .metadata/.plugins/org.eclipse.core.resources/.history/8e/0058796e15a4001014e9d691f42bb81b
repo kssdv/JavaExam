@@ -1,0 +1,9 @@
+package aRank;
+
+public class exam43 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+	}
+
+}

@@ -1,0 +1,53 @@
+package aRank;
+
+import java.util.Scanner;
+
+public class exam41 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int h = sc.nextInt();
+		int w = sc.nextInt();
+		char[][] grid = new char[h][w];
+//		int[] idx = new int[2];
+//		// 上下左右
+//		int[][] udlr = {{1, 0}, {-1, 0}, {0, -1}, {0, 1}};
+		int[] position = new int[2];
+		
+		for(int i=0; i<h; i++) {
+			char[] tmp = sc.next().toCharArray();
+			for(int j=0; j<tmp.length; j++) {
+				if(tmp[j] == '*') position = new int[] {i, j};
+			}
+			grid[i] = tmp;
+		}
+		
+		UPLR(grid, position);
+		
+//		for(int i=0; i<udlr.length; i++) {
+//			int[] tmp = new int[] {position[0] + udlr[0][i], position[1] + udlr[1][i]};
+//			if(isInside(grid, tmp)) {
+//				grid[tmp[0]][tmp[1]] = '*';
+//			}
+//		}
+		
+	}
+	
+	private static void UPLR(char[][] grid, int[] position) {
+		// 上下左右
+		int[][] udlr = {{1, 0}, {-1, 0}, {0, -1}, {0, 1}};
+		for(int i=0; i<udlr.length; i++) {
+			int[] tmp = new int[] {position[0] + udlr[0][i], position[1] + udlr[1][i]};
+			if(isInside(grid, tmp)) {
+				grid[tmp[0]][tmp[1]] = '*';
+			}
+		}
+	}
+	
+	private static boolean isInside(char[][] grid, int[] position) {
+//		boolean flag = true;
+		if(grid.length >= position[0] || position[0] < 0) return false;
+		if(grid[0].length >= position[1] || position[1] < 0) return false;		
+		return true;
+	}
+}

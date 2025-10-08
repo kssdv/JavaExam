@@ -1,0 +1,21 @@
+package aRank;
+
+public class exam41 {
+
+	public static void main(String[] args) {
+		char[][] grid = new char[5][5];
+		
+	}
+	private static boolean isOut(char[][] grid, int[] position) {
+		boolean flag = true;
+		
+		if(position[0] >= grid.length && position[0] < 0) {
+			flag = false;
+		}
+		if(position[1] >= grid[0].length && position[1] < 0) {
+			flag = false;
+		}
+		
+		return flag;
+	}
+}

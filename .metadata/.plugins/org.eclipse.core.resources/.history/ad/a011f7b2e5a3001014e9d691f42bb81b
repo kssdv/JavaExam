@@ -1,0 +1,9 @@
+package aRank;
+
+public class exam40 {
+
+	public static void main(String[] args) {
+		Hashtable<Integer, Character> ht = new Hashtable<>();
+	}
+
+}

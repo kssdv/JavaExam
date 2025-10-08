@@ -1,0 +1,50 @@
+package aRank;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class exam43 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int h = sc.nextInt();
+		int w = sc.nextInt();
+		
+		char[][] grid = new char[h][w];
+		int startRow = -1, startCol = -1;
+		
+		for(int i=0; i<h; i++) {
+			String line = sc.next();
+			for(int j=0; j<w; j++) {
+				grid[i][j] = line.charAt(j);
+				// 始発点の'*'探す
+				if(grid[i][j] == '*') {
+					startRow = i;
+					startCol = j;
+				}
+			}
+		}
+		sc.close();
+		
+		// Queue生成
+		Queue<int[]> queue = new LinkedList<>();
+		
+		// 始発点にQueueの追加
+		queue.add(new int[] {startRow, startCol});
+		
+		// 上下左右をさらわす配列
+		int[] dr = {-1, 1, 0, 0};
+		int[] dc = {0, 0, -1, 1};
+		
+		// BFS探索
+		while(!queue.isEmpty()) {
+			int[] current = queue.poll();
+			int r = current[0];
+			int c = current[1];
+			
+			// 現在位置から四方探索
+			
+		}
+	}
+
+}

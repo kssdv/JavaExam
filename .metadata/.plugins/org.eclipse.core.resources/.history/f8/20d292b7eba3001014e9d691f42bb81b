@@ -1,0 +1,14 @@
+package aRank;
+
+import java.util.Hashtable;
+
+public class exam40 {
+
+	public static void main(String[] args) {
+		Hashtable<Integer, Character> ht = new Hashtable<>();
+		ht.put(0, 'a');
+		
+		System.out.println(ht.containsKey(0));
+	}
+
+}

@@ -1,0 +1,8 @@
+package aRank;
+
+public class exam44 {
+	public static void main(String[] args) {
+		Queue<int[]> queue = new LinkedList<>();
+	}
+
+}

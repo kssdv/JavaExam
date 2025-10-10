@@ -1,0 +1,72 @@
+package aRank;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class exam46 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int h = sc.nextInt();
+		int w = sc.nextInt();
+		char[][] grid = new char[h][w];
+		int n = sc.nextInt();
+		int startRow = -1;
+		int startCol = -1;
+		int cnt = 0;
+		
+		for(int i=0; i<h; i++) {
+			String line = sc.next();
+			for(int j=0; j<w; j++) {
+				char t = line.charAt(j);
+				grid[i][j] = t;
+				if(grid[i][j] == '*') {
+					startRow = i;
+					startCol = j;
+//					grid[i][j] = (char) (cnt+'0');
+					grid[i][j] = '0';
+				}
+			}
+		}
+		
+		Queue<int[]> queue = new LinkedList<>();
+		queue.add(new int[] {startRow, startCol});
+		
+		int[] dr = {-1, 1, 0, 0};
+		int[] dc = {0, 0, -1, 1};
+		
+		while(!queue.isEmpty()) {
+			int[] recent = queue.poll();
+			int r = recent[0];
+			int c = recent[1];
+			
+			int nextR = r;
+			int nextC = c;
+			cnt++;
+			
+			for(int i=0; i<4; i++) {
+				nextR = r + dr[i];
+				nextC = c + dc[i];
+				
+				if(nextR >= h || nextR < 0 || nextC >= w || nextC < 0) continue;
+				
+				if(grid[nextR][nextC] == '.') {
+					queue.add(new int[] {nextR, nextC});
+//					grid[nextR][nextC] = (char) (cnt+'0');
+					// 以前のノード値のプラス１
+					grid[nextR][nextC] = (char) (grid[r][c] + 1);
+				}
+			}
+		}
+		printGrid(grid);
+	}
+	private static void printGrid(char[][] grid) {
+		for(int i=0; i<grid.length; i++) {
+			for(int j=0; j<grid[0].length; j++) {
+				System.out.print(grid[i][j]);
+			}
+			System.out.println();
+		}
+	}
+}

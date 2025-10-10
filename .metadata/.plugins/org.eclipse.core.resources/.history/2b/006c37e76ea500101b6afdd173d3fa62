@@ -1,0 +1,82 @@
+package aRank;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class exam43 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int h = sc.nextInt();
+		int w = sc.nextInt();
+		
+		char[][] grid = new char[h][w];
+		int startRow = -1, startCol = -1;
+		
+		// gridに情報入力
+		for(int i=0; i<h; i++) {
+			String line = sc.next();
+			for(int j=0; j<w; j++) {
+				grid[i][j] = line.charAt(j);
+				// 始発点の'*'探す
+				if(grid[i][j] == '*') {
+					startRow = i;
+					startCol = j;
+				}
+			}
+		}
+		sc.close();
+		
+		// Queue生成
+		Queue<int[]> queue = new LinkedList<>();
+		
+		// 始発点にQueueの追加
+		queue.add(new int[] {startRow, startCol});
+		
+		// 上下左右をさらわす配列
+		int[] dr = {-1, 1, 0, 0};
+		int[] dc = {0, 0, -1, 1};
+		
+		// BFS探索
+		while(!queue.isEmpty()) {
+			int[] current = queue.poll();
+			int r = current[0];
+			int c = current[1];
+			
+			// 現在位置から四方探索
+			for(int i=0; i<4; i++) {
+				int nextR = r + dr[i];
+				int nextC = c + dc[i];
+				
+				// 条件検査
+				// 盤面(grid)の中にいるのか
+				if(nextR < 0 || nextR >= h || nextC < 0 || nextC >= w) {
+					continue; // 範囲外だったら次の方向を探索
+				}
+				
+				// b, c 障害物でなく、まだ訪問しない幹か確認
+				if(grid[nextR][nextC] == '.') {
+					// 条件をみたしたら陣地に作ってる
+					grid[nextR][nextC] = '*';
+					queue.add(new int[] {nextR, nextC});
+					printGrid(grid);
+				}
+			}
+		}
+		// 結果出力
+		for(int i=0; i<h; i++) {
+			for(int j=0; j<w; j++) {
+				System.out.print(grid[i][j]);
+			}
+			System.out.println();
+		}
+	}
+	private static void pringGrid(char[][] grid) {
+		for(int i=0; i<grid.length; i++) {
+			for(int j=0; j<grid[0].length; j++) {
+				System.out.print(grid[i][j]);
+			}
+			System.out.println();
+		}
+	}
+}

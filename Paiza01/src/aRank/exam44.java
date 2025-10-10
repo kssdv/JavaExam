@@ -2,23 +2,61 @@ package aRank;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Scanner;
 
 public class exam44 {
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int h = sc.nextInt();
+		int w = sc.nextInt();
+		char[][] grid = new char[h][w];
+		int startRow = -1, startCol = -1;
+		
+		for(int i=0; i<h; i++) {
+			String line = sc.next();
+			for(int j=0; j<w; j++) {
+				char t = line.charAt(j);
+				grid[i][j] = t;
+				if(grid[i][j] == '*') {
+					startRow = i;
+					startCol = j;
+				}
+			}
+		}
+		
 		Queue<int[]> queue = new LinkedList<>();
+		queue.add(new int[] {startRow, startCol});
 		
-		int h = 10;
-		int w = 10;
+		int[] dr = {-1, 1, 0, 0};
+		int[] dc = {0, 0, -1, 1};
 		
-		queue.add(new int[] {0,0});
-		queue.add(new int[] {1,0});
-		queue.add(new int[] {2,0});
-		int[] tmp = queue.poll();
-		System.out.println(tmp[0] + " " + tmp[1]);
-		tmp = queue.poll();
-		System.out.println(tmp[0] + " " + tmp[1]);
-		tmp = queue.poll();
-		System.out.println(tmp[0] + " " + tmp[1]);
+		while(!queue.isEmpty()) {
+			int[] current = queue.poll();
+			int r = current[0];
+			int c = current[1];
+			
+			for(int i=0; i<4; i++) {
+				int nextR = r + dr[i];
+				int nextC = c + dc[i];
+				
+				// 範囲内なのか
+				if(nextR < 0 || nextR >=h || nextC < 0 || nextC >= w) continue;
+				
+				if(grid[nextR][nextC] == '.') {
+					grid[nextR][nextC] = '*';
+					queue.add(new int[] {nextR, nextC});
+				}
+			}
+			
+		}
+		printGrid(grid);
 	}
-
+	private static void printGrid(char[][] grid) {
+		for(int i=0; i<grid.length; i++) {
+			for(int j=0; j<grid[0].length; j++) {
+				System.out.print(grid[i][j]);
+			}
+			System.out.println();
+		}
+	}
 }

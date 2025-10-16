@@ -1,0 +1,67 @@
+package aRank;
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class exam58 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int h = sc.nextInt();
+		int w = sc.nextInt();
+		int d = sc.nextInt();
+		
+		char[][] grid = new char[h][w];
+		int[][] distances = new int[h][w];
+		Queue<int[]> queue = new LinkedList<>();
+		
+		for(int i=0; i<h; i++) {
+			String line = sc.next();
+			for(int j=0; j<w; j++) {
+				grid[i][j] = line.charAt(j);
+				if(grid[i][j] == '*') {
+					queue.add(new int[] {i, j});
+				}
+			}
+		}
+		
+		int[] dy = {-1, 1, 0, 0};
+		int[] dx = {0, 0, -1, 1};
+		
+		while(!queue.isEmpty()) {
+			int[] current = queue.poll();
+			int currentY = current[0];
+			int currentX = current[1];
+			
+			for(int i=0; i<4; i++) {
+				int nextY = currentY + dy[i];
+				int nextX = currentX + dx[i];
+				
+				if(nextY < 0 || nextY >= h || nextX < 0 || nextX >= w) {
+					continue;
+				}
+				
+				if(grid[nextY][nextX] == '#' || distances[nextY][nextX] == -1) {
+					continue;
+				}
+				
+				distances[nextY][nextX] = distances[currentY][currentX] + 1;
+				queue.add(new int[] {nextY, nextX});
+			}
+		}
+		
+		int count = 0;
+		for(int i=0; i<h; i++) {
+			for(int j=0; j<w; j++) {
+				if(grid[i][j] == '.') {
+					if(distances[i][j] >= d || distances[i][j] == -1) {
+						count++;
+					}
+				}
+			}
+		}
+	}
+
+}

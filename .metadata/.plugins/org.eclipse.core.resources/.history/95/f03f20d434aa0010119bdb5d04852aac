@@ -1,0 +1,19 @@
+package aRank;
+
+import java.util.Set;
+import java.util.TreeSet;
+
+public class exam54 {
+
+	public static void main(String[] args) {
+		Set<Set> set = new TreeSet<>();
+		set.add(new Set<int[]>);
+		set.add(new int[] {2,0});
+		set.add(new int[] {0, 1});
+		
+		for(int[] s : set) {
+			System.out.println(s[0] + " " + s[1]);
+		}
+	}
+
+}

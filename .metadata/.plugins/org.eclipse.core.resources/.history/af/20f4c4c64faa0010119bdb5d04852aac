@@ -1,0 +1,93 @@
+package aRank;
+/*
+ * 地図の高さ H、地図の横幅 W、距離 D、地図の情報 M_i (1 ≦ i ≦ H) が与えられます。
+ * M_i の各行は　'.', '#', '\*' のいずれかのみからなり、
+ * '.' は空地、
+ * '#'は通行できない道、
+ * '\*' は競合店を示します。
+ * 全ての競合店からの距離が D 以上である空地の個数を出力してください。	
+入力
+6 6 3
+..#...
+.#....
+*...*.
+*.#...
+#.##.*
+......
+
+出力
+8
+ */
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class exam55 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Queue<int[]> queue = new LinkedList<>();
+		List<int[]> stores = new ArrayList<>();
+		int safeLotCount = 0; // 安全な空地の個数
+		int[][] move = {{-1,0}, {1,0}, {0,-1}, {0,1}};
+        int h = sc.nextInt();
+        int w = sc.nextInt();
+        int d = sc.nextInt();
+
+        char[][] original_grid = new char[h][w];
+        int[][] igrid = new int[h][w];
+
+        // 1. 地図情報を読み、店('*')位置を保存
+        for (int i = 0; i < h; i++) {
+            String row = sc.next();
+            for (int j = 0; j < w; j++) {
+            	original_grid[i][j] = row.charAt(j);
+                if (original_grid[i][j] == '*') {
+                    stores.add(new int[]{i, j});
+                }
+            }
+        }
+        
+//        for(int[] store : stores) {
+//        		System.out.println(store[0] + " " + store[1]);
+//        		queue.add(store);
+//        		int currentY = store[0];
+//        		int currentX = store[1];
+//        		
+//        		while(!queue.isEmpty()) {
+//        			int NextY = 
+//        		}
+//        }
+        
+        int[] store = stores.get(0);
+        // for文の中
+        
+        char[][] grid = original_grid.clone(); // 元のgridに初期化
+        queue.add(store);
+        igrid[store[0]][store[1]] = 0;
+		
+		while(!queue.isEmpty()) {
+			int[] tmp = queue.poll();
+			int currentY = tmp[0];
+			int currentX = tmp[1];
+			
+			
+			for(int i=0; i<4; i++) {
+				int nextY = currentY + move[i][0];
+				int nextX = currentX + move[i][1];
+				
+				if(nextY < 0 || nextY >= h || nextX < 0 || nextX >= w) {
+					continue;
+				}
+				
+				if(grid[nextY][nextX] == '.') {
+					
+				}
+			}
+		}
+        
+	}
+
+}

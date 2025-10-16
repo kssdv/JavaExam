@@ -1,0 +1,9 @@
+package aRank;
+
+public class exam56 {
+
+	public static void main(String[] args) {
+		Set<List<Integer>> set = new HashSet<>();
+	}
+
+}

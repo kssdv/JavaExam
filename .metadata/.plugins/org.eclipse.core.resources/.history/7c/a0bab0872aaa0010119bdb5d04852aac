@@ -1,0 +1,12 @@
+package aRank;
+
+import java.util.Set;
+import java.util.TreeSet;
+
+public class exam54 {
+
+	public static void main(String[] args) {
+		Set<String> set = new TreeSet<String>();
+	}
+
+}

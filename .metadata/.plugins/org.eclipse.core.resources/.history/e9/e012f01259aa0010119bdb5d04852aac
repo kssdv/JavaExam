@@ -1,0 +1,13 @@
+package aRank;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+public class exam56 {
+
+	public static void main(String[] args) {
+		Set<List<Integer>> set = new HashSet<>();
+	}
+
+}

@@ -1,0 +1,39 @@
+package aRank;
+
+import java.util.Scanner;
+
+public class exam48 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int[] lst = new int[24];
+		boolean flag = true;
+		int n = sc.nextInt();
+		
+		for(int i=0; i<n; i++) {
+			int t1 = sc.nextInt();
+			int t2 = sc.nextInt();
+			
+			if(t1 < t2) {
+				for(int j=t1; j<t2; j++) {
+					lst[j]++;
+				}
+			}else {
+				for(int j=t1; j<24; j++) {
+					lst[j]++;
+				}
+				for(int j=0; j<t2; j++) {
+					lst[j]++;
+				}
+			}
+		}
+		
+		for(int i : lst) {
+			if(i < 2) {
+				flag = false;
+			}
+		}
+		String result = flag ? "OK" : "NG";
+		System.out.println(result);
+	}
+}

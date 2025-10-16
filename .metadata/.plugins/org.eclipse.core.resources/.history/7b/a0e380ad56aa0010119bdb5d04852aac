@@ -1,0 +1,57 @@
+package aRank;
+/*
+ * 地図の高さ H、地図の横幅 W、距離 D、地図の情報 M_i (1 ≦ i ≦ H) が与えられます。
+ * M_i の各行は　'.', '#', '\*' のいずれかのみからなり、
+ * '.' は空地、
+ * '#'は通行できない道、
+ * '\*' は競合店を示します。
+ * 全ての競合店からの距離が D 以上である空地の個数を出力してください。	
+入力
+6 6 3
+..#...
+.#....
+*...*.
+*.#...
+#.##.*
+......
+
+出力
+8
+ */
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class exam55 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Queue<int[]> queue = new LinkedList<>();
+		List<int[]> stores = new ArrayList<>();
+		int safeLotCount = 0; // 安全な空地の個数
+		int[][] move = {{-1,0}, {1,0}, {0,-1}, {0,1}};
+        int h = sc.nextInt();
+        int w = sc.nextInt();
+        int d = sc.nextInt();
+
+        char[][] original_grid = new char[h][w];
+        int[][] igrid = new int[h][w];
+        
+        for(int i=0; i<h; i++) {
+        		
+        }
+		printIgrid(igrid);
+	}
+	
+	private static void printIgrid(int[][] igrid) {
+		for(int i=0; i<igrid.length; i++) {
+			for(int j=0; j<igrid[0].length; j++) {
+				System.out.print(igrid[i][j]);
+			}
+			System.out.println();
+		}
+	}
+
+}

@@ -1,0 +1,76 @@
+package aRank;
+/*
+ * 地図の高さ H、地図の横幅 W、距離 D、地図の情報 M_i (1 ≦ i ≦ H) が与えられます。
+ * M_i の各行は　'.', '#', '\*' のいずれかのみからなり、
+ * '.' は空地、
+ * '#'は通行できない道、
+ * '\*' は競合店を示します。
+ * 全ての競合店からの距離が D 以上である空地の個数を出力してください。	
+入力
+6 6 3
+..#...
+.#....
+*...*.
+*.#...
+#.##.*
+......
+
+出力
+8
+ */
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class exam49 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		List<int[]> stores = new ArrayList<>();
+		int h = sc.nextInt();
+		int w = sc.nextInt();
+		int d = sc.nextInt();
+		char[][] grid = new char[h][w];
+		int cnt = 0;
+		
+		for(int i=0; i<h; i++) {
+			char[] tmp = sc.next().toCharArray();
+			for(int j=0; j<tmp.length; j++) {
+				grid[i][j] = tmp[j];
+				if(grid[i][j] == '*') {
+					stores.add(new int[] {i, j});
+				}
+			}
+		}
+		
+		for(int i=0; i<h; i++) {
+			for(int j=0; j<w; j++) {
+				// '.'空地じゃない場合はパス
+				if (grid[i][j] != '.') {
+                    continue;
+                }
+				
+				boolean isSafe = true;
+				for(int[] store : stores) {
+					int distance = calDistance(new int[] {i,j}, store);
+					
+					if(distance < d) {
+						isSafe = false; 
+						break; // 他の店は確認不要
+					}
+				}
+				
+			}
+		}
+		
+		System.out.println(cnt);
+	}
+	
+	private static int calDistance(int[] p1, int[] p2) {
+		int res = Math.abs(p1[0] - p2[0]) + Math.abs(p1[1] - p2[1]);
+		
+		return res;
+	}
+
+}

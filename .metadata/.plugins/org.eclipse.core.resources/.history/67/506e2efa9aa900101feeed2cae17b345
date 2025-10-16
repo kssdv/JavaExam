@@ -1,0 +1,15 @@
+package aRank;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class exam48 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+	}
+}

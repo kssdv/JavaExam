@@ -20,6 +20,7 @@ public class exam05 {
 		//1. Arrays.stream(arr1) -> int[] 배열을 IntStream 으로 변환
 		//2. .boxed() -> IntStream을 Stream<Integer>로 변환
 		//3. .collect(Collectors.toList()) -> Stream<Integer>의 모든 요소를 모아서 List<Integer>로 변환
+		//4. set.add(...) 위 1~3단계를 거쳐서 만들어진 List<Integer> 객체를 최종적으로 Set에 추가
 		set.add(Arrays.stream(arr1).boxed().collect(Collectors.toList()));
 		set.add(Arrays.stream(arr2).boxed().collect(Collectors.toList()));
 		set.add(Arrays.stream(arr3).boxed().collect(Collectors.toList()));

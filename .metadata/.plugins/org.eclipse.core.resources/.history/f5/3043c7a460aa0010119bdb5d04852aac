@@ -1,0 +1,94 @@
+package aRank;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+public class exam55 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		List<int[]> stores = new ArrayList<>();
+		List<int[][]> igrids = new ArrayList<>();
+		Set<List<Integer>> set = new HashSet<>();
+		int[][] move = {{1,0}, {-1,0}, {0,-1}, {0,1}};
+		int h = sc.nextInt();
+		int w = sc.nextInt();
+		int d = sc.nextInt();
+		char[][] original_grid = new char[h][w];
+//		int[][] igrid = new int[h][w];
+		
+		for(int i=0; i<h; i++) {
+			String tmp = sc.next();
+			for(int j=0; j<w; j++) {
+				original_grid[i][j] = tmp.charAt(j);
+				if(original_grid[i][j] == '*') {
+					stores.add(new int[] {i,j});
+				}
+				
+			}
+		}
+		
+		for(int i=0; i<stores.size(); i++) {
+			Queue<int[]> queue = new LinkedList<>();
+			char[][] grid = original_grid.clone();
+			int[][] igrid = new int[h][w];
+			int[] store = stores.get(i);
+			
+			queue.add(new int[] {store[0], store[1]});
+			
+			while(!queue.isEmpty()) {
+				int[] tmp = queue.poll();
+				int currentY = tmp[0];
+				int currentX = tmp[1];
+				
+				
+				for(int j=0; j<4; j++) {
+					int nextY = currentY + move[i][0];
+					int nextX = currentX + move[i][0];
+					
+					if(nextY < 0 || nextY >= h || nextX < 0 || nextX >= w) {
+						continue;
+					}
+					
+					if(grid[nextY][nextX] == '.') {
+						grid[nextY][nextX] = '*';
+						igrid[nextY][nextX] = igrid[currentY][currentX] + 1;
+						queue.add(new int[] {nextY, nextX});
+					}
+				}
+				
+			}
+			igrids.add(igrid);
+		}
+		
+		for(int g=0; g<igrids.size(); g++) {
+			int[][] tigrid = igrids.get(g);
+			for(int i=0; i<h; i++) {
+				for(int j=0; j<w; j++) {
+					if(tigrid[i][j] > d) {
+						int[] arr = {i, j};
+						set.add(Arrays.stream(arr).boxed().collect(Collectors.toList()));
+					}
+				}
+			}
+		}
+		char[][] result_grid = original_grid.clone();
+		for(int ) {
+			
+		}
+		
+		for(int i=0; i<h; i++) {
+			for(int j=0; j<w; j++) {
+				if()
+			}
+		}
+	}
+
+}

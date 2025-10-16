@@ -1,0 +1,83 @@
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class exam56 {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int h = sc.nextInt();
+        int w = sc.nextInt();
+        int d = sc.nextInt();
+
+        char[][] grid = new char[h][w];
+        int[][] distances = new int[h][w]; // 각 칸까지의 최단 거리를 저장할 배열
+        Queue<int[]> queue = new LinkedList<>(); // BFS를 위한 큐
+
+        // distances 배열을 -1로 초기화 (방문하지 않음 표시)
+        for (int i = 0; i < h; i++) {
+            Arrays.fill(distances[i], -1);
+        }
+
+        // 지도 정보를 입력받고, 모든 경쟁점을 큐에 추가 (BFS 시작점 설정)
+        for (int i = 0; i < h; i++) {
+            String line = sc.next();
+            for (int j = 0; j < w; j++) {
+                grid[i][j] = line.charAt(j);
+                if (grid[i][j] == '*') {
+                    queue.add(new int[]{i, j});
+                    distances[i][j] = 0; // 경쟁점 위치의 거리는 0
+                }
+            }
+        }
+        sc.close();
+
+        // 상하좌우 이동을 위한 배열
+        int[] dy = {-1, 1, 0, 0};
+        int[] dx = {0, 0, -1, 1};
+
+        // 멀티 소스 BFS 실행
+        while (!queue.isEmpty()) {
+            int[] current = queue.poll();
+            int currentY = current[0];
+            int currentX = current[1];
+
+            for (int i = 0; i < 4; i++) {
+                int nextY = currentY + dy[i];
+                int nextX = currentX + dx[i];
+
+                // 1. 지도 범위를 벗어나는지 확인
+                if (nextY < 0 || nextY >= h || nextX < 0 || nextX >= w) {
+                    continue;
+                }
+
+                // 2. 벽('#')이거나 이미 방문했는지 확인
+                if (grid[nextY][nextX] == '#' || distances[nextY][nextX] != -1) {
+                    continue;
+                }
+
+                // 거리 갱신 및 큐에 추가
+                distances[nextY][nextX] = distances[currentY][currentX] + 1;
+                queue.add(new int[]{nextY, nextX});
+            }
+        }
+
+        // 모든 경쟁점으로부터 거리가 D 이상인 빈 땅의 개수를 카운트
+        int count = 0;
+        for (int i = 0; i < h; i++) {
+            for (int j = 0; j < w; j++) {
+                // 해당 칸이 빈 땅('.')이고
+                if (grid[i][j] == '.') {
+                    // 최단 거리가 D 이상이거나, 도달할 수 없는 곳(-1)이라면 카운트
+                    if (distances[i][j] >= d || distances[i][j] == -1) {
+                        count++;
+                    }
+                }
+            }
+        }
+
+        System.out.println(count);
+    }
+}

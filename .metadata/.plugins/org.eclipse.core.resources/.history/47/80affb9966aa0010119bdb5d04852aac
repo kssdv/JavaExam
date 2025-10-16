@@ -1,0 +1,17 @@
+package aRank;
+
+import java.util.Scanner;
+
+public class exam57 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int h = sc.nextInt();
+		int w = sc.nextInt();
+		int d = sc.nextInt();
+		
+		char[][] grid = new char[h][w];
+		
+	}
+
+}

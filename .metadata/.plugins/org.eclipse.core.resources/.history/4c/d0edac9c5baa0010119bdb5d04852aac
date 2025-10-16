@@ -1,0 +1,37 @@
+package aRank;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+
+public class exam55 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		List<int[]> stores = new ArrayList<>();
+		List<int[][]> grids = new ArrayList<>();
+		Set<List<Integer>> set = new HashSet<>();
+		int h = sc.nextInt();
+		int w = sc.nextInt();
+		int d = sc.nextInt();
+		char[][] original_grid = new char[h][w];
+		
+		for(int i=0; i<h; i++) {
+			String tmp = sc.next();
+			for(int j=0; j<w; j++) {
+				original_grid[i][j] = tmp.charAt(j);
+				if(original_grid[i][j] == '*') stores.add(new int[] {i,j});
+			}
+		}
+		
+		for(int i=0; i<stores.size(); i++) {
+			Queue<int[]> queue = new LinkedList<>();
+			char[][] grid = original_grid.clone();
+//			while(!)
+		}
+		
+	}
+
+}

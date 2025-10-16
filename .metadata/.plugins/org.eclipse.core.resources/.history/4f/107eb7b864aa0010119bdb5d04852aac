@@ -1,0 +1,15 @@
+package aRank;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class exam56 {
+
+	public static void main(String[] args) {
+		List<int[]> lst = new ArrayList<>();
+		lst.add(new int[] {0,0});
+		
+		System.out.println(lst.contains(new int[] {0,0}));
+	}
+
+}

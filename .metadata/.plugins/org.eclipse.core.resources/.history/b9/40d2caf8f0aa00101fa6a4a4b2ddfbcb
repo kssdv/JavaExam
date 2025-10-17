@@ -1,0 +1,13 @@
+package aRank;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class exam60 {
+
+	public static void main(String[] args) {
+		Queue<int[]> queue = new LinkedList<>();
+		
+	}
+
+}

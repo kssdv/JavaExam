@@ -1,0 +1,30 @@
+package aRank;
+
+import java.util.Scanner;
+
+public class exam67 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int m = sc.nextInt();
+		int result = -1;
+		int sum = 0;
+		int[] nums = new int[n];
+		
+		for(int i=0; i<n; i++) {
+			nums[i] = sc.nextInt();
+		}
+		
+		for(int i=0; i<n; i++) {
+			sum += nums[i];
+			if(sum >= m) {
+				result = i;
+				break;
+			}
+		}
+		System.out.println(result >= 0 ? result+1 : result);
+		
+	}
+
+}

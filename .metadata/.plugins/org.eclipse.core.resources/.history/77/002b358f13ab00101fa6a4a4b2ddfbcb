@@ -1,0 +1,25 @@
+package aRank;
+
+import java.util.Scanner;
+
+public class exam65 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int[] nums = new int[n];
+		
+		for(int i=0; i<n; i++) {
+			nums[i] = sc.nextInt();
+		}
+		
+		for(int i=0; i<n; i++) {
+			int sum = 0;
+			for(int j=0; j<i; j++) {
+				sum += nums[j];
+			}
+			System.out.println(sum);
+		}
+	}
+
+}

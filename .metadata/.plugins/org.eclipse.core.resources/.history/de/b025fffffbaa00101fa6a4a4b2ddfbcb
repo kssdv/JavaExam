@@ -1,0 +1,33 @@
+package aRank;
+
+import java.util.Scanner;
+
+public class exam60 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Queue<int[]> queue = new LinkedList<>();
+		int h = sc.nextInt();
+		int w = sc.nextInt();
+		char[][] grid = new char[h][w];
+		int[] startPoint = new int[2];
+		
+		for(int i=0; i<h; i++) {
+			String line = sc.next();
+			for(int j=0; j<w; j++) {
+				grid[i][j] = line.charAt(j);
+				if(grid[i][j] == '!') {
+					startPoint = new int[] {i, j};
+				}
+			}
+		}
+		int[] dy = {-1, -1, -1, 0, 1, 1, 1, 0};
+		int[] dx = {-1, 0, 1, 1, 1, 0, -1, -1};
+		
+		for(int i=0; i<8; i++) {
+			
+		}
+		
+	}
+
+}

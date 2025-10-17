@@ -1,0 +1,55 @@
+package aRank;
+
+import java.util.Scanner;
+
+public class exam68 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int m = sc.nextInt();
+		int result = -1;
+		int sum = 0;
+		int min = Integer.MAX_VALUE;
+		int[] nums = new int[n];
+		int fi = 0; // front Index
+		int bi = 0; // back Index
+		
+		for(int i=0; i<n; i++) {
+			nums[i] = sc.nextInt();
+		}
+		if(n == 1) {
+			if(nums[0] >= m) {
+				System.out.println(1);
+			}else {
+				System.out.println(-1);
+			}
+		}else {
+//			while(!(bi >= n-1 && sum < m)) {
+			while(true) {
+				if(fi == bi) {
+					sum = nums[fi];
+				}
+				
+				if(sum < m) {
+					if(fi+1 < n) {
+						fi++;
+					}else if(fi >= n-1){
+						break;
+					}
+				}else {
+					if(min > result && result != -1) {
+						min = result;
+					}
+					if(bi-1 >= 0) {
+						bi--;
+					}
+				}
+				
+			}
+			System.out.println(min != Integer.MAX_VALUE ? min+1 : -1);
+		}
+
+	}
+
+}

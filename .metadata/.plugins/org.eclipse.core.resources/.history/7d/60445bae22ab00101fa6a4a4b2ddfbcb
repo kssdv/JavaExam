@@ -1,0 +1,45 @@
+package aRank;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class exam68 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		List<Integer> sums = new ArrayList<>();
+		int n = sc.nextInt();
+		int m = sc.nextInt();
+		int count = Integer.MAX_VALUE;
+		int[] nums = new int[n];
+		int start = 0;
+		int end = 0;
+		
+		for(int i=0; i<n; i++) {
+			nums[i] = sc.nextInt();
+		}
+		
+		for(int i=0; i<n; i++) {
+			sums.add(sums.get(sums.size()-1) - nums[i]);
+		}
+		while(true) {
+			if(end >= n) {
+				break;
+			}
+			if(sums.get(end + 1) - sums.get(start) >= m) {
+				
+			}
+		}
+		
+		if(n == 1) {
+			if(nums[0] >= m) {
+				System.out.println(1);
+			}else {
+				System.out.println(-1);
+			}
+		}
+
+	}
+
+}

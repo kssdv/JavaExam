@@ -1,9 +1,0 @@
-package aRank;
-
-public class exam47 {
-
-	public static void main(String[] args) {
-		System.out.println((char) ('9' + 1));
-	}
-
-}

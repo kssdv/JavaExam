@@ -1,0 +1,32 @@
+package aRank;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class exam70 {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		// read 1st line 
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int n = Integer.parseInt(st.nextToken());
+		long m = Long.parseLong(st.nextToken());
+		// read 2nd line
+		int[] a = new int[n];
+		st = new StringTokenizer(br.readLine());
+		for(int i=0; i<n; i++) {
+			a[i] = Integer.parseInt(st.nextToken());
+		}
+		
+		int start = 0; // window's startPoint
+		long currentSum = 0; // 
+		int maxLength = 0;
+		
+		for(int end=0; end<n; end++) {
+			
+		}
+	}
+
+}

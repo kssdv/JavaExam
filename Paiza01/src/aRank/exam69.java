@@ -35,7 +35,7 @@ public class exam69 {
         for (int i = 0; i < n; i++) {
             a[i] = Integer.parseInt(st.nextToken());
         }
-
+        
         // 3. 슬라이딩 윈도우 알고리즘 적용
         int start = 0; // 윈도우의 시작점
         long currentSum = 0; // 현재 윈도우의 합

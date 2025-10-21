@@ -1,0 +1,9 @@
+package aRank;
+
+public class exam75 {
+
+	public static void main(String[] args) {
+		BufferedReaader br = new BufferedReader(new InputStreamReader(System.in));
+	}
+
+}

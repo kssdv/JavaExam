@@ -1,0 +1,55 @@
+package aRank;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
+public class exam79 {
+
+	public static void main(String[] args) throws IOException{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int n = Integer.parseInt(st.nextToken());
+		if(n == 1) {
+			System.out.println();
+			return;
+		}
+		int[][] g = new int[n-1][2];
+		List<Integer> lst = new ArrayList<>();
+		int minIdx = Integer.MAX_VALUE;
+		int min = Integer.MAX_VALUE;
+		
+		for(int i=0; i<n-1; i++) {
+			st = new StringTokenizer(br.readLine());
+			int a = Integer.parseInt(st.nextToken());
+			int b = Integer.parseInt(st.nextToken());
+			if(min > Math.min(a, b)) {
+				min = Math.min(a, b);
+				minIdx = i;
+			}
+			g[i] = new int[] {a, b};
+		}
+		
+		lst.add(Math.min(g[minIdx][0], g[minIdx][1]));
+		while(lst.size() < n) {
+			for(int i=0; i<g.length; i++) {
+				if(g[i][0] == lst.get(lst.size()-1) && !lst.contains(g[i][1])) {
+					lst.add(g[i][1]);
+				}else if(g[i][1] == lst.get(lst.size()-1) && !lst.contains(g[i][0])) {
+					lst.add(g[i][0]);
+				}
+			}
+		}
+		
+		
+		for(int i : lst) {
+			System.out.println(i);
+		}
+		
+		 
+	}
+
+}

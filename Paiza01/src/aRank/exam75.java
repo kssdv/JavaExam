@@ -12,12 +12,21 @@ public class exam75 {
 		StringTokenizer st = new StringTokenizer(br.readLine());
 		int n = Integer.parseInt(st.nextToken());
 		int m = Integer.parseInt(st.nextToken());
+		int[][] node = new int[n][n];
+		
+		for(int i=0; i<m; i++) {
+			st = new StringTokenizer(br.readLine());
+			int a = Integer.parseInt(st.nextToken()) - 1;
+			int b = Integer.parseInt(st.nextToken()) - 1;
+			node[a][b] = 1;
+			node[b][a] = 1;
+		}
 		
 		for(int i=0; i<n; i++) {
-			st = new StringTokenizer(br.readLine());
-			int a = Integer.parseInt(st.nextToken());
-			int b = Integer.parseInt(st.nextToken());
-			
+			for(int j=0; j<n; j++) {
+				System.out.print(node[i][j]);
+			}
+			System.out.println();
 		}
 		
 	}

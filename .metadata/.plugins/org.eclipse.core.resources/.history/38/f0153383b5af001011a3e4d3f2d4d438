@@ -1,0 +1,70 @@
+package aRank;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Dictionary;
+import java.util.List;
+import java.util.StringTokenizer;
+
+public class exam81 {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int n = Integer.parseInt(st.nextToken());
+		int m = Integer.parseInt(st.nextToken());
+		List<Integer> lst = new ArrayList<>();
+		List<Integer> tlst = new ArrayList<>(); // node1, node3, node4, ... 
+		boolean isConnected = false;
+		int[][] g = new int[m][2];
+		int minIdx = Integer.MAX_VALUE;
+		int min = Integer.MAX_VALUE;
+		
+		for(int i=0; i<m; i++) {
+			st = new StringTokenizer(br.readLine());
+			int a = Integer.parseInt(st.nextToken());
+			int b = Integer.parseInt(st.nextToken());
+			if (!tlst.contains(a)) tlst.add(a);
+			if (!tlst.contains(b)) tlst.add(b);
+			if(min > Math.min(a, b)) {
+				min = Math.min(a, b);
+				minIdx = i;
+			}
+			g[i] = new int[] {a, b};
+		}
+		
+		Collections.sort(tlst);
+		Dictionary<Integer, List<Integer>> dictionary = new Hashtable<>();
+		
+		for(int i=0; i<tlst.size(); i++) {
+			
+		}
+		
+		lst.add(Math.min(g[minIdx][0], g[minIdx][1]));
+		while(lst.size() < n) {
+			boolean isNotConnected = true;
+			for(int i=0; i<g.length; i++) {
+				if(g[i][0] == lst.get(lst.size()-1) && !lst.contains(g[i][1])) {
+					lst.add(g[i][1]);
+					isNotConnected = false;
+				}else if(g[i][1] == lst.get(lst.size()-1) && !lst.contains(g[i][0])) {
+					lst.add(g[i][0]);
+					isNotConnected = false;
+				}
+			}
+			if(isNotConnected) {
+				isConnected = false;
+				break;
+			}
+		}
+		
+//		if(lst.size() < n) {
+//			
+//		}
+		System.out.println(isConnected ? "YES" : "NO");
+	}
+
+}

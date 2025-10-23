@@ -1,0 +1,46 @@
+package aRank;
+/*
+4 2
+1 2
+3 2
+
+NO
+ */
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.StringTokenizer;
+
+public class exam82 {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int n = Integer.parseInt(st.nextToken());
+		int m = Integer.parseInt(st.nextToken());
+		List<Integer> nodes = new ArrayList<>();
+		HashMap<Integer, List<Integer>> dictionary = new HashMap<>();
+		for(int i=0; i<m; i++) {
+			st = new StringTokenizer(br.readLine());
+			int a = Integer.parseInt(st.nextToken()) - 1;
+			int b = Integer.parseInt(st.nextToken()) - 1;
+			
+			if(!nodes.contains(a)) {
+				nodes.add(a);
+			}
+			if(!nodes.contains(b)) {
+				nodes.add(b);
+			}
+		}
+		Collections.sort(nodes);
+		for(int i: nodes) {
+			System.out.println(i);
+		}
+		
+	}
+
+}
